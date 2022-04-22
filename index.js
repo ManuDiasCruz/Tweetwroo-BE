@@ -19,6 +19,21 @@ app.post('/sign-up', (request, response) => {
     response.send('OK')
 })
 
+app.post('/tweets', (request, response) => {
+    const { msg } = request.body
+    const { user } = request.headers
+
+    const searchUserMatchAvatar = users.find((user) => user.username === user);
+
+    const tweet = {
+        username: msg,
+        avatar: searchUserMatchAvatar.avatar,
+        tweet: msg
+    }
+    tweets.push(tweet)
+    response.send('OK')
+})
+
 app.listen(5000, () =>
     console.log("Servidor no ar em http://localhost/5000")
 )
