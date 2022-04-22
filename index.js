@@ -9,5 +9,6 @@ let users = []
 let tweets = []
 
 
-
-app.listen(5000)
+app.listen(5000, () =>
+    console.log("Servidor no ar em http://localhost/5000")
+)
